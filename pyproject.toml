@@ -1,0 +1,10 @@
+[project]
+name = "romlingo"
+version = "0.1.0"
+description = "Agent-driven framework for building language-learning patches around localized retro games"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

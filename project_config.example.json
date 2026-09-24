@@ -1,0 +1,46 @@
+{
+  "project_name": "example-game-language-learning",
+  "game": {
+    "title": "Example Game",
+    "platform": "GBA",
+    "region": null,
+    "revision": null,
+    "source_filename": "example.gba",
+    "expected_sha256": null
+  },
+  "language": {
+    "target_language": "Spanish",
+    "learner_language": "English",
+    "target_variant": "Preserve source localization; explain Mexican/Latin American differences"
+  },
+  "learning": {
+    "learner_level": "A2",
+    "lesson_density": "balanced",
+    "features": {
+      "translation": true,
+      "vocabulary": true,
+      "grammar": true,
+      "sentence_breakdown": true,
+      "important_expressions": true,
+      "verb_explanations": true,
+      "regional_notes": true,
+      "memory_tricks": true,
+      "quizzes": true,
+      "concept_review": true,
+      "spaced_repetition": true,
+      "pronunciation": false,
+      "ipa": false,
+      "cultural_notes": false,
+      "etymology": false,
+      "cognates": true,
+      "false_friends": true
+    }
+  },
+  "scope": {
+    "milestone": "opening / first 15-30 minutes"
+  },
+  "targets": {
+    "environments": ["RetroArch", "Steam Deck"],
+    "patch_formats": ["bps"]
+  }
+}

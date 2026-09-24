@@ -1,0 +1,16 @@
+{
+  "language": "Spanish",
+  "code": "es",
+  "role": "documentation_example",
+  "teaching_focus": [
+    "grammatical gender and agreement",
+    "articles and contractions",
+    "verb conjugation",
+    "ser vs estar",
+    "preterite vs imperfect",
+    "object pronouns",
+    "subjunctive when level-appropriate",
+    "regional vocabulary and register"
+  ],
+  "common_glyphs": "áéíóúüñ¿¡"
+}

@@ -1,0 +1,29 @@
+# User-supplied commercial game files
+input/*
+!input/README.md
+
+# Generated/intermediate files
+working/*
+!working/.gitkeep
+output/*
+!output/.gitkeep
+builds/*
+!builds/.gitkeep
+release/patches/*
+!release/patches/.gitkeep
+
+# Local configuration
+project_config.json
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
