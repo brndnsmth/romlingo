@@ -11,10 +11,10 @@ Open the repository with **Codex**, **Claude Code**, or another repository-aware
 ## See it in action
 
 <p align="center">
-  <img src="docs/images/romlingo-demo.gif" alt="RomLingo translating localized dialogue in two retro game test projects" width="800">
+  <img src="docs/images/romlingo-demo.gif" alt="RomLingo translating localized dialogue in an EarthBound test project" width="800">
 </p>
 
-RomLingo can preserve the original localized dialogue, then add an English explanation or translation directly into the game's existing text flow.
+RomLingo can preserve the original localized dialogue, then add an English explanation or translation directly into the game's existing text flow. This example uses an EarthBound test project.
 
 ### Lessons stay inside the game
 
