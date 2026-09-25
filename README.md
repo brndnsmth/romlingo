@@ -1,38 +1,54 @@
 # RomLingo
 
-    +----------------------------------------------------------+
-    |                         ROMLINGO                         |
-    |             PLAY THE GAME. LEARN THE LANGUAGE.          |
-    +----------------------------------------------------------+
+**Play the game. Learn the language.**
 
 **RomLingo** is an agent-driven framework for turning localized retro games into language-learning experiences.
 
-RomLingo is designed primarily for **Codex** and **Claude Code**, while remaining usable with other similar repository-aware coding agents. The agent guides the user through setup, inspects the supplied game and any translation patch, reverse-engineers the game-specific text pipeline, builds a small vertical slice, tests it, and only then expands coverage.
-
-RomLingo is not intended to be a magical one-click universal ROM patcher. Retro games differ too much in text encoding, compression, pointers, script engines, fonts, control codes, and storage layout for that to be reliable. Instead, the repository provides:
-
-- persistent agent instructions
-- a guided project-setup workflow
-- reusable analysis and validation tools
-- language-learning design rules
-- game-specific project/adapter space
-- test and release conventions
+Open the repository with **Codex**, **Claude Code**, or another repository-aware coding agent, provide your legally obtained game, and let the agent guide setup, inspect the game's text system, build a small playable learning slice, test it, and expand from there.
 
 > **Don't translate the game. Learn through it.**
 
-## Agent support
+## See it in action
 
-RomLingo is intentionally **agent-agnostic at the workflow level**. Its primary targets are:
+<p align="center">
+  <img src="docs/images/romlingo-demo.gif" alt="RomLingo translating localized dialogue in two retro game test projects" width="800">
+</p>
 
-- **Codex**
-- **Claude Code**
-- other similar coding agents that can work directly in a repository, inspect files, run shell/Python tools, edit code, and maintain project context
+RomLingo can preserve the original localized dialogue, then add an English explanation or translation directly into the game's existing text flow.
 
-`AGENTS.md` is the canonical RomLingo instruction set. `CLAUDE.md` is a lightweight Claude Code entry point that directs Claude to the same shared rules rather than duplicating them. Game-specific knowledge should stay inside each project directory so whichever agent is used can work from the same verified facts.
+### Lessons stay inside the game
 
-## Recommended workflow
+The goal is not to turn gameplay into a textbook. RomLingo can add short teaching moments around the dialogue the player is already reading.
 
-The simplest workflow is:
+**1. Start with the real localized line**
+
+<p align="center">
+  <img src="docs/images/lesson-context.jpg" alt="Spanish dialogue shown in-game before a RomLingo lesson" width="800">
+</p>
+
+**2. Add a focused language tip**
+
+<p align="center">
+  <img src="docs/images/language-tip.jpg" alt="RomLingo language tip explaining that guardar means to save" width="800">
+</p>
+
+**3. Reinforce it with a memory trick**
+
+<p align="center">
+  <img src="docs/images/memory-trick.jpg" alt="RomLingo memory trick connecting guardar with guard" width="800">
+</p>
+
+Depending on the project and learner settings, interactions can include:
+
+- line-by-line translation or explanation
+- vocabulary and grammar tips
+- memory tricks and mnemonics
+- short review prompts or quizzes
+- lighter explanations as familiar patterns repeat
+
+*The footage and screenshots above are examples from local test projects. RomLingo does not include or distribute commercial game files.*
+
+## Quick start
 
 1. Clone or open this repository with **Codex**, **Claude Code**, or a similar coding agent.
 2. Put your legally obtained game file in `input/` when requested.
@@ -51,7 +67,49 @@ The simplest workflow is:
 
 See [`START_HERE.md`](START_HERE.md) for the shortest possible setup path.
 
-## What the guided setup asks
+## Why RomLingo is agent-first
+
+Retro games differ too much in text encoding, compression, pointers, script engines, fonts, control codes, and storage layout for a reliable one-click universal patcher.
+
+RomLingo instead gives a coding agent a repeatable workflow and a place to preserve verified game-specific knowledge. The repository provides:
+
+- persistent agent instructions
+- a guided project-setup workflow
+- reusable analysis and validation tools
+- language-learning design rules
+- game-specific project/adapter space
+- test and release conventions
+
+A generic tool can reliably do things like hashing files, validating configuration, checking text width, validating structured lesson data, building known adapters, and creating patches once a game's format is understood.
+
+The difficult part is game-specific discovery:
+
+```text
+GAME
+  -> identify text/script system
+  -> extract authentic localized dialogue
+  -> understand pointers/control codes/fonts
+  -> determine safe expansion/repointing
+  -> build a game-specific adapter
+  -> validate lessons against real textbox limits
+  -> generate and test the patch
+```
+
+That is where a repository-aware agent is most useful.
+
+## Agent support
+
+RomLingo is intentionally **agent-agnostic at the workflow level**. Its primary targets are:
+
+- **Codex**
+- **Claude Code**
+- other similar coding agents that can work directly in a repository, inspect files, run shell/Python tools, edit code, and maintain project context
+
+`AGENTS.md` is the canonical RomLingo instruction set. `CLAUDE.md` is a lightweight Claude Code entry point that directs Claude to the same shared rules rather than duplicating them.
+
+Game-specific knowledge should stay inside each project directory so whichever agent is used can work from the same verified facts.
+
+## Guided setup
 
 The agent should collect only information it cannot infer itself:
 
@@ -69,9 +127,15 @@ The agent should collect only information it cannot infer itself:
 
 The agent should determine technical details itself whenever possible, including hashes, platform, revision clues, encoding, text storage, pointer formats, control codes, fonts, textbox limits, and expansion strategy.
 
-## Example learning interaction
+## Learning model
 
-Original game dialogue:
+RomLingo treats the **actual localized text in the game as the linguistic source of truth**.
+
+Do not generate a target-language lesson from another-language script while assuming the localization says the same thing. Localizations often change jokes, idioms, sentence structure, register, terminology, and characterization.
+
+Extract and teach the target localization itself.
+
+For example, original game dialogue might be:
 
 ```text
 ¿Qué estás haciendo?
@@ -90,14 +154,6 @@ estás haciendo
 
 Later encounters should become shorter as the learner becomes familiar with the pattern.
 
-## Design principle
-
-RomLingo treats the **actual localized text in the game as the linguistic source of truth**.
-
-Do not generate a target-language lesson from another-language script while assuming the localization says the same thing. Localizations often change jokes, idioms, sentence structure, register, terminology, and characterization.
-
-Extract and teach the target localization itself.
-
 ## Language scope
 
 RomLingo is **language-agnostic**. It does not define support around language families or assume a particular writing system, grammar, word order, or character set.
@@ -105,69 +161,6 @@ RomLingo is **language-agnostic**. It does not define support around language fa
 Actual feasibility depends on the target game: its localization, encoding, fonts, glyph capacity, renderer, script engine, available storage, and how safely those systems can be modified. Some games will be much easier to adapt than others regardless of the language being taught.
 
 **Spanish is used throughout this repository as the primary documentation example.** Spanish examples demonstrate the learning workflow; they are not architectural requirements or a statement about which languages RomLingo supports.
-
-## Repo layout
-
-```text
-romlingo/
-├── AGENTS.md                  # Canonical shared instructions for coding agents
-├── CLAUDE.md                  # Thin Claude Code entry point
-├── START_HERE.md              # Human-facing quick start
-├── README.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── project_config.example.json
-│
-├── docs/
-│   ├── setup-wizard.md        # Guided onboarding questions
-│   ├── agents.md              # Codex, Claude Code, and similar agents
-│   ├── agent-playbook.md      # Detailed development rules
-│   ├── architecture.md
-│   ├── lesson-format.md
-│   ├── project-workflow.md
-│   └── patching.md
-│
-├── input/                     # Local source files; ignored by git
-├── working/                   # Generated working files
-├── builds/                    # Test builds
-├── output/                    # Generated project outputs
-│
-├── tools/                     # Reusable helper scripts
-├── language/profiles/         # Optional language profiles; Spanish example + template
-├── data/                      # Structured dialogue/lesson data
-├── tests/
-├── projects/
-│   └── template/              # Template for game-specific work
-└── release/
-```
-
-## Why an agent-first design?
-
-A generic tool can reliably do things like:
-
-- hash files
-- validate configuration
-- check text width
-- validate structured lesson data
-- build known project adapters
-- create patches once a project's format is understood
-
-But it cannot safely assume that every SNES, GBA, N64, PlayStation, or GameCube game stores text the same way.
-
-The difficult part is game-specific discovery:
-
-```text
-GAME
-  -> identify text/script system
-  -> extract authentic localized dialogue
-  -> understand pointers/control codes/fonts
-  -> determine safe expansion/repointing
-  -> build a game-specific adapter
-  -> validate lessons against real textbox limits
-  -> generate and test the patch
-```
-
-That is where an agent such as Codex or Claude Code working directly in the repository is most useful. Other similar coding agents can follow the same workflow when they can read project instructions, inspect files, run tools, edit code, and execute tests.
 
 ## Vertical-slice rule
 
@@ -204,6 +197,42 @@ WWWWWWWW
 ```
 
 Overflow should fail the build instead of silently truncating a lesson.
+
+## Repository layout
+
+```text
+romlingo/
+├── AGENTS.md                  # Canonical shared instructions for coding agents
+├── CLAUDE.md                  # Thin Claude Code entry point
+├── START_HERE.md              # Human-facing quick start
+├── README.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── project_config.example.json
+│
+├── docs/
+│   ├── images/                # README/demo media
+│   ├── setup-wizard.md        # Guided onboarding questions
+│   ├── agents.md              # Codex, Claude Code, and similar agents
+│   ├── agent-playbook.md      # Detailed development rules
+│   ├── architecture.md
+│   ├── lesson-format.md
+│   ├── project-workflow.md
+│   └── patching.md
+│
+├── input/                     # Local source files; ignored by git
+├── working/                   # Generated working files
+├── builds/                    # Test builds
+├── output/                    # Generated project outputs
+│
+├── tools/                     # Reusable helper scripts
+├── language/profiles/         # Optional language profiles; Spanish example + template
+├── data/                      # Structured dialogue/lesson data
+├── tests/
+├── projects/
+│   └── template/              # Template for game-specific work
+└── release/
+```
 
 ## Helper tools
 
