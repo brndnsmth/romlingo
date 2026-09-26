@@ -2,7 +2,7 @@
 
 **Play the game. Learn the language.**
 
-**RomLingo** is an agent-driven framework for turning localized retro games into language-learning experiences.
+**RomLingo** is an agent-driven framework for turning localized retro games into supplemental language-learning experiences.
 
 Open the repository with **Codex**, **Claude Code**, or another repository-aware coding agent, provide your legally obtained game, and let the agent guide setup, inspect the game's text system, build a small playable learning slice, test it, and expand from there.
 
@@ -20,6 +20,9 @@ RomLingo can preserve the original localized dialogue, then add an English expla
 
 The goal is not to turn gameplay into a textbook. RomLingo can add short teaching moments around the dialogue the player is already reading.
 
+**RomLingo is a companion, not a complete language course.**
+It is designed to supplement structured study, listening and speaking practice, reading, grammar and vocabulary resources, classes, tutors, or other learning material. Not replace them.
+
 **1. Start with the real localized line**
 
 <p align="center">
@@ -32,17 +35,15 @@ The goal is not to turn gameplay into a textbook. RomLingo can add short teachin
   <img src="docs/images/language-tip.jpg" alt="RomLingo language tip explaining that guardar means to save" width="800">
 </p>
 
-**3. Reinforce it with a memory trick**
+**3. Reinforce useful patterns over time**
 
-<p align="center">
-  <img src="docs/images/memory-trick.jpg" alt="RomLingo memory trick connecting guardar with guard" width="800">
-</p>
+As vocabulary and grammar reappear naturally during gameplay, RomLingo can revisit them with shorter explanations and reinforcement rather than teaching every encounter from scratch.
 
 Depending on the project and learner settings, interactions can include:
 
 - line-by-line translation or explanation
 - vocabulary and grammar tips
-- memory tricks and mnemonics
+- memory aids and mnemonics
 - short review prompts or quizzes
 - lighter explanations as familiar patterns repeat
 
